@@ -3,5 +3,6 @@
 <ul>
     <li *ngFor="let personaje of personajes">
         {{ personaje.nombre }} - {{ personaje.poder | number }}
+        <button type="button" class="btn-close" aria-label="Close" (click)="eliminar(personaje)"></button>
     </li>
 </ul>

@@ -26,4 +26,9 @@ export class DbzService {
         this._personajes.push( personaje );
     }
 
+    eliminarPersonaje( personaje: Personaje ) {
+      const indice :number = this._personajes.indexOf(personaje);
+      this._personajes.splice(indice,1);
+  }
+
 }

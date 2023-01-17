@@ -5,7 +5,8 @@ import { DbzService } from '../services/dbz.service';
 
 @Component({
   selector: 'app-personajes',
-  templateUrl: './personajes.component.html'
+  templateUrl: './personajes.component.html',
+  styleUrls: ['./personajes.component.css']
 })
 export class PersonajesComponent {
 
@@ -16,4 +17,9 @@ export class PersonajesComponent {
 
   constructor( private dbzService: DbzService ) {}
 
+  eliminar(personaje: Personaje) {
+
+    this.dbzService.eliminarPersonaje(personaje);
+
+  }
 }
