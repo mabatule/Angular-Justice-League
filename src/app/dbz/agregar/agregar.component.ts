@@ -8,7 +8,7 @@ import { DbzService } from '../services/dbz.service';
   templateUrl: './agregar.component.html'
 })
 export class AgregarComponent {
-
+  isEmty : boolean = false;
   @Input() nuevo: Personaje = {
     nombre: '',
     poder: 0
@@ -19,15 +19,18 @@ export class AgregarComponent {
   // @Output() onNuevoPersonaje: EventEmitter<Personaje> = new EventEmitter();
 
   agregar() {
-    if ( this.nuevo.nombre.trim().length === 0 ) { return; }
+    if ( this.nuevo.nombre.trim().length === 0 ) { 
+      this.isEmty= true;
+    return; }
     
     // this.onNuevoPersonaje.emit( this.nuevo );
+   
     this.dbzService.agregarPersonaje( this.nuevo );
 
     this.nuevo = {
       nombre: '',
       poder: 0
     }
-
+    this.isEmty=false;
   }
 }
