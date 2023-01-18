@@ -1,9 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Personaje } from '../interfaces/dbz.interface';
 
 
 @Injectable()
 export class DbzService {
+
+    $modal = new EventEmitter<any>();
 
     private _personajes: Personaje[] = [
         {
@@ -24,6 +26,20 @@ export class DbzService {
 
     agregarPersonaje( personaje: Personaje ) {
         this._personajes.push( personaje );
+    }
+
+    private _personaje: Personaje ={
+      nombre:"",
+      poder:0
+    }
+
+    get personaje(): Personaje{
+        return this._personaje;
+    }
+
+    getPersonaje( personaje: Personaje){
+        this._personaje=personaje;
+        console.log(this.personaje)
     }
 
     eliminarPersonaje( personaje: Personaje ) {

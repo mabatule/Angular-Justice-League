@@ -3,6 +3,10 @@
 <ul>
     <li *ngFor="let personaje of personajes">
         {{ personaje.nombre }} - {{ personaje.poder | number }}
+        <button (click)="mostrarModal()" (click)="get(personaje)">Editar</button>
         <button type="button" class="btn-close" aria-label="Close" (click)="eliminar(personaje)"></button>
     </li>
 </ul>
+
+<div *ngIf="switchModal==true"><app-editar></app-editar></div>
+
