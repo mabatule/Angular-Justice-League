@@ -18,4 +18,8 @@ export class EditarComponent{
     get personaje(){
         return this.dbzService.personaje;
     }
+
+    geterror(){
+        
+    }
 }
