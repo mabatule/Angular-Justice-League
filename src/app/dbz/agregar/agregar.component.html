@@ -1,25 +1,32 @@
 <h3>Agregar <small>{{ nuevo.nombre }}</small></h3>
 <hr>
-
+<div *ngIf="isEmty">
+    Ingrese al menos un nombre
+</div>
 <form (ngSubmit)="agregar()">
     <input 
         type="text" 
         placeholder="Nombre" 
         name="nombre"
         [(ngModel)]="nuevo.nombre"
+        maxlength="15"
+        required #name="ngModel"
     />
-    <!-- [value]="nuevo.nombre"
-        (input)="cambiarNombre( $event )" -->
-
+    <div *ngIf="name.invalid && name.touched" class="error">
+        <div *ngIf="name.errors?.['required']">El Nombre es requerido</div>
+        <div *ngIf="name.errors?.['maxlength']">El Nombre debe ser menor a 15 caracteres</div>
+    </div>
     <input 
         type="number" 
         placeholder="Poder" 
         name="poder"
         [(ngModel)]="nuevo.poder"
+        required #power="ngModel"
     />
-
-    <button type="submit">
+    <div *ngIf="power.invalid && power.touched" class="error">
+        <div *ngIf="power.errors?.['required']">El número de poder es requerido</div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="name.invalid || power.invalid">
         Agregar
     </button>
-
 </form>

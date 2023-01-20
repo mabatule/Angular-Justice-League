@@ -1,0 +1,14 @@
+<form (ngSubmit)="cerrarModal()">
+    <input type="text" 
+    placeholder="Nombre"
+    name="nombre"
+    [(ngModel)]="personaje.nombre">
+
+    <input type="text"
+    placeholder="Poder"
+    name="poder"
+    [(ngModel)]="personaje.poder">
+
+    <button>Editar</button>
+    <button (click)="cerrarModal()">Cerrar</button>
+</form>

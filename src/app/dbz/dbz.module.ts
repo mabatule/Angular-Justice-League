@@ -7,6 +7,7 @@ import { PersonajesComponent } from './personajes/personajes.component';
 import { AgregarComponent } from './agregar/agregar.component';
 
 import { DbzService } from './services/dbz.service';
+import { EditarComponent } from './editar/editar.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { DbzService } from './services/dbz.service';
     MainPageComponent,
     PersonajesComponent,
     AgregarComponent,
+    EditarComponent,
   ],
   exports: [
     MainPageComponent,
